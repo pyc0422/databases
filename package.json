@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node ./server/app.js",
     "start:es6": "npx babel-node ./server/app.js",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "lint": "eslint ./"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "express": "4.17.1",
     "morgan": "^1.10.0",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.3.3",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
