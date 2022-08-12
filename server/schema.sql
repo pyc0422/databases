@@ -4,13 +4,13 @@ CREATE DATABASE chat;
 USE chat;
 
 /* Create other tables and define schemas for them here! */
-CREATE TABLE users (
+CREATE TABLE Users (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   username text NOT NULL,
   primary key(id)
 );
 
-CREATE TABLE messages (
+CREATE TABLE Messages (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   username text NOT NULL,
   message text NOT null,
