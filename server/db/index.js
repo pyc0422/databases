@@ -32,8 +32,4 @@ var Message = connection.define('Message', {
 
 exports.User = User;
 exports.Message = Message;
-exports = {
-  User,
-  Message,
-  connection
-};
+exports.connection = connection;

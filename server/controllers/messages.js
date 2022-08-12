@@ -12,11 +12,8 @@ module.exports = {
   post: function (req, res) {
     console.log('controllers message: ', req.body);
     var data = models.messages.create(req.body, ()=> {
-
       res.send();
     });
-    // res.writeHead(200, {'Content-Type': 'application/json' });
-    // res.end(data);
 
   } // a function which handles posting a message to the database
 };

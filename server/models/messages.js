@@ -2,16 +2,7 @@ var db = require('../db');
 
 module.exports = {
   getAll: function (cb) {
-    // return new Promise((resolve, reject) => {
-    //   db.connection.query('SELECT * FROM messages', function(err, results) {
-    //     if (err) {
-    //       reject(err);
-    //     } else {
-    //       resolve(results);
-    //     }
 
-    //   });
-    // });
     db.Message.sync()
       .then(() => {
         return db.Message.findAll();

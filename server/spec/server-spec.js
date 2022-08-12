@@ -91,9 +91,9 @@ describe('Persistent Node Chat Server', () => {
 
     });
   });
-  it('Should output all users from the DB', (done) => {
 
-      dbConnection.query('truncate users', ()=>{});
+  it('Should output all users from the DB', (done) => {
+    dbConnection.query('truncate users', ()=>{});
     // Let's insert a message into the db
     const queryString = 'INSERT INTO messages (username, message, roomname) VALUES (?, ?, ?)';
     const queryArgs = ['user1', 'Hello World!', 'lobby'];
@@ -103,7 +103,6 @@ describe('Persistent Node Chat Server', () => {
       if (err) {
         throw err;
       }
-
       // Now query the Node chat server and see if it returns the message we just inserted:
       axios.get(`${API_URL}/messages`)
         .then((response) => {
@@ -115,7 +114,31 @@ describe('Persistent Node Chat Server', () => {
         .catch((err) => {
           throw err;
         });
+    });
+  });
 
+  it('Should handle empty user name', (done) => {
+    dbConnection.query('truncate users', ()=>{});
+    // Let's insert a message into the db
+    const queryString = 'INSERT INTO Users (username) VALUES (?)';
+    const queryArgs = [''];
+    /* TODO: The exact query string and query args to use here
+     * depend on the schema you design, so I'll leave them up to you. */
+    dbConnection.query(queryString, queryArgs, (err) => {
+      if (err) {
+        throw err;
+      }
+      // Now query the Node chat server and see if it returns the message we just inserted:
+      axios.get(`${API_URL}/users`)
+        .then((response) => {
+          const messageLog = response.data;
+          console.log(messageLog);
+          expect(messageLog[0].username).toEqual(queryArgs[0]);
+          done();
+        })
+        .catch((err) => {
+          throw err;
+        });
     });
   });
 });

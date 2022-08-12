@@ -11,16 +11,13 @@ var db = new Sequelize('chat', 'root', '', {dialect: 'mysql'});
 /* first define the data structure by giving property names and datatypes
  * See http://sequelizejs.com for other datatypes you can use besides STRING. */
 var user = db.define('User', {
-  username: Sequelize.STRING,
-  createdAt: Sequelize.STRING,
-  updatedAt: Sequelize.STRING
+  username: Sequelize.STRING
 });
 
 var message = db.define('Message', {
   username: Sequelize.STRING,
   message: Sequelize.STRING,
   roomname: Sequelize.STRING,
-  createdAt: Sequelize.STRING
 });
 
 /* Sequelize comes with built in support for promises

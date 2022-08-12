@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "npx nodemon ./server/app.js",
+    "start:client": "npx live-server",
     "start:es6": "npx babel-node ./server/app.js",
     "test": "jest --detectOpenHandles",
     "lint": "eslint ./"
@@ -20,7 +21,8 @@
     "express": "4.17.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
