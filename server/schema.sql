@@ -16,6 +16,7 @@ CREATE TABLE Messages (
   message text NOT null,
   roomname text NULL,
   primary key(id)
+
 );
 
 /*  Execute this file from the command line by typing:

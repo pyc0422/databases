@@ -25,7 +25,6 @@ var App = {
       data = JSON.parse(data);
       // Don't bother to update if we have no messages
       if (data && data.length) {
-        console.log('data: ', data);
         Rooms.update(data, RoomsView.render);
         Messages.update(data, MessagesView.render);
       }

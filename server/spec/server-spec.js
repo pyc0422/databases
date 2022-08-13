@@ -141,4 +141,22 @@ describe('Persistent Node Chat Server', () => {
         });
     });
   });
+
+  it('Should have err for tables not in database', (done) => {
+    var test = false;
+    dbConnection.query('truncate users', ()=>{});
+    const queryString = 'INSERT INTO testing (username) VALUES (?)';
+    const queryArgs = [123];
+    dbConnection.query(queryString, queryArgs, (err) => {
+      if (err) {
+        test = true;
+        expect(test).toEqual(true);
+        done();
+      }
+    });
+
+
+  });
 });
+
+

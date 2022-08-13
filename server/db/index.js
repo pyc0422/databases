@@ -1,5 +1,5 @@
 var mysql = require('mysql2');
-var Sequelize = require('sequelize');
+var {Sequelize, DataTypes} = require('sequelize');
 var connection = new Sequelize('chat', 'root', '', {dialect: 'mysql'});
 
 // Create a database connection and export it from this file.
@@ -17,7 +17,11 @@ var connection = new Sequelize('chat', 'root', '', {dialect: 'mysql'});
 //   database: 'chat'
 // });
 var User = connection.define('User', {
-  username: Sequelize.STRING
+  username: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+    unique: true
+  }
 }, {
   timestamps: false
 });
